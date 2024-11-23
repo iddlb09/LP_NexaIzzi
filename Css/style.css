@@ -16,7 +16,7 @@
     --background-color: #000000;
     --second-background-color: #1f2733;
     --third-background-color: #2d3542;
-    --main-color: rgb(255, 94, 0);
+    --main-color: #ff5500;
     --white-color: #fff;
     --tab-list-color: #7c8594;
 }
@@ -133,21 +133,92 @@ a:hover .tooltip{
 .home{
     display: flex;
     align-items: center;
-    gap: 5rem;
+    gap: 20rem;
 }
 
-.home-info h1{
-    font-size: 7rem;
-    color: var(--main-color);
-    line-height: 1;
+.home-info{
+    max-width: 250rem;
 }
 
 .home-info h3{
-    font-size: 28px;
+    font-weight: 400;
+    font-size: 34px;
 }
 
+.home-info h3 span{
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.home-info .text-animation{
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 400;
+    margin-top: 2%;
+}
+
+.home-info .text-animation span{
+    position: relative;
+}
+
+.text-animation span::before{
+    content: "";
+    color: var(--main-color);
+    animation: lethers 20s infinite;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.text-animation span::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid var(--main-color);
+    right: -10px;
+    animation: cursor .8s infinite, touch 20s steps(15) infinite;
+    width: calc(100% + 7px);
+    background-color: var(--background-color);
+}
+
+@keyframes touch {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 7px);
+    }
+}
+
+@keyframes cursor {
+    0%{
+        border-left: 2px solid var(--background-color);
+    }
+}
+
+@keyframes lethers {
+    0%,20%{
+        content: "Software Personalizado!";
+    }
+    21%,40%{
+        content: "Software Comercial!";
+    }
+    41%,60%{
+        content: "Software Open Source!";
+    }
+    61%,80%{
+        content: "Software Web!";
+    }
+    81%,100%{
+        content: "Software Mobile!";
+    }
+}
+
+
 .home-info p{
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: 2%;
 }
 
 .desc{
@@ -168,6 +239,7 @@ a:hover .tooltip{
     font-size: 1.6rem;
     color: var(--background-color);
     font-weight: 600;
+    margin-top: 2%;
 }
 
 .btn:hover{
@@ -201,7 +273,7 @@ a:hover .tooltip{
     height: 28vw;
     border-radius: 50%;
     border: .5rem solid var(--main-color);
-    box-shadow: 0 0 2rem var(--main-color);
+    box-shadow: 0 0 4rem var(--main-color);
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -209,14 +281,13 @@ a:hover .tooltip{
 }
 
 .img-box.home-img:hover{
-    box-shadow: 0 0 8rem var(--main-color);
+    box-shadow: none;
 }
 
 .img-box img{
     position: absolute;
     display: block;
-    width: 350px;
+    width: 425px;
     object-fit: cover;
-    border-radius: 100%;
-    margin-top: 11%;
+    margin-top: 25%;
 }
